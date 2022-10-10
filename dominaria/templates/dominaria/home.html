@@ -1,0 +1,20 @@
+{% extends "dominaria/base.html" %}
+{% block content %}
+    {% for matchup in matchups %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">Partida: {{ matchup.player1 }} vs. {{ matchup.player2 }}</a>
+            <small class="text-muted">{{ matchup.date|date:"d-m-Y" }}</small>
+          </div>
+          {% if matchup.winner %}
+            <h2>Guanyador:<a class="article-title" href="#"> {{ matchup.winner }}</a></h2>
+          {% else %}
+            <h2>Empat</h2>
+          {% endif %}
+          <p class="article-content">{{ matchup.games_won_by_p1 }} - {{ matchup.games_won_by_p2 }}</p>
+        </div>
+      </article>
+    {% endfor %}
+{% endblock content %}
+  

@@ -1,0 +1,25 @@
+{% extends "dominaria/base.html" %}
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Jugador</th>
+      <th scope="col">Punts</th>
+      <th scope="col">Percentatge de partides guanyades</th>
+      <th scope="col">Partides jugades</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for matchup in classification %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ matchup.player }}</td>
+        <td>{{ matchup.points }}</td>
+        <td>{{ matchup.per_games_won }}%</td>
+        <td>{{ matchup.rounds_played }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
