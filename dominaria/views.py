@@ -4,14 +4,14 @@ from operator import attrgetter
 from .models import Matchup
 from .models import Player
 # Create your views here.
-def home(request):
+def games(request):
     context = {
         'matchups': Matchup.objects.all().order_by('date'),
-        'title':'dominaria'
+        'title':'Lliga Dominaria'
     }
-    return render(request, 'dominaria/home.html', context)
+    return render(request, 'dominaria/games.html', context)
 
-def about(request):
+def classif(request):
     players = Player.objects.all() 
     classification = []
     class classificate:
@@ -43,6 +43,7 @@ def about(request):
         classification.append(classificate(player.name, points, per_games_won, rounds_played.count()))
     sorted_classification = sorted(classification, key=attrgetter('points', 'per_games_won'), reverse=True)
     context= {
-        'classification':sorted_classification
+        'classification':sorted_classification,
+        'title':'Lliga Dominaria'
     }
-    return render(request, 'dominaria/about.html', context)
+    return render(request, 'dominaria/classif.html', context)
