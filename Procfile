@@ -1,1 +1,1 @@
-﻿web: gunicorn lliga_vadejocs.wsgi
+﻿web: gunicorn lligues_mtg.wsgi
