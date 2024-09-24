@@ -1,1 +1,0 @@
-﻿web: gunicorn lligues_mtg.wsgi
